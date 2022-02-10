@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="weatherInfo"
+            type="com.example.weatherforecast.data.weatherresult.WeatherData" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8"
+        app:cardCornerRadius="@dimen/margin_8"
+        app:cardElevation="@dimen/margin_4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cityDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.format(@string/weather_on_date, weatherInfo.date)}"
+                android:textSize="@dimen/text_12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Locus" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cityCurrTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:text="@{String.format(@string/curr_temp, weatherInfo.currTemp)}"
+                android:textSize="@dimen/text_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Locus.sh" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/minTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cityCurrTemp"
+                android:text="@{String.format(@string/min_temp, weatherInfo.tempMin)}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/maxTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/minTemp"
+                app:layout_constraintTop_toBottomOf="@id/cityCurrTemp"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="@{String.format(@string/max_temp, weatherInfo.tempMax)}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/maxTemp"
+                android:text="@{weatherInfo.weather}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

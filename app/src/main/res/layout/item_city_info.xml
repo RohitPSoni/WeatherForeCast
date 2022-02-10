@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="cityInfo"
+            type="com.example.weatherforecast.data.cityresult.CityData" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_8"
+        app:cardCornerRadius="@dimen/margin_8"
+        app:cardElevation="@dimen/margin_4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_8">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Locus"
+                android:textSize="@dimen/text_20"
+                android:textStyle="bold"
+                android:text="@{cityInfo.name}"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cityInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cityName"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/margin_8"
+                tools:text="Locus.sh"
+                android:textSize="@dimen/text_12"
+                android:text="@{cityInfo.info}"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
