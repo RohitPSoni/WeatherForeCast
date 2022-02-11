@@ -6,8 +6,8 @@
     <string name="search">Search</string>
     <string name="invalid_city_name">Invalid City Name</string>
     <string name="select_city">Select City to see Weather Forecast</string>
-    <string name="weather_on_date">Date %s</string>
-    <string name="curr_temp">Temperature is %d&#xb0;</string>
-    <string name="min_temp">Min temp is %d&#xb0;</string>
-    <string name="max_temp">Max temp is %d&#xb0;</string>
+    <string name="weather_on_date">Forecast on Date: %s</string>
+    <string name="curr_temp">Temperature is %s&#xb0;c</string>
+    <string name="min_temp">Min temp is %s&#xb0;c</string>
+    <string name="max_temp">Max temp is %s&#xb0;c</string>
 </resources>

@@ -14,7 +14,7 @@ class CityForecastAdapter : RecyclerView.Adapter<CityForecastAdapter.CityForecas
         RecyclerView.ViewHolder(binder.root) {
         fun bind(data: WeatherData) {
             with(binder) {
-                setVariable(BR.weatherInfo, weather)
+                setVariable(BR.weatherInfo, data)
                 executePendingBindings()
             }
         }
@@ -38,6 +38,7 @@ class CityForecastAdapter : RecyclerView.Adapter<CityForecastAdapter.CityForecas
     fun updateWeather(list: List<WeatherData>) {
         val start = this.list.size
         this.list.clear()
+        this.list.addAll(list)
         notifyItemRangeInserted(start, this.list.size)
     }
 }

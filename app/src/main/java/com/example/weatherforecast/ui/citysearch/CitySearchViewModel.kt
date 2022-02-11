@@ -13,6 +13,16 @@ class CitySearchViewModel(private val repo: FetchCityRepo) : BaseViewModel() {
     val invalidCityName = MutableLiveData<Unit>()
 
     fun searchCity(name: String) {
+        cityName.value?.let {
+            if (it.isEmpty()) {
+                getData(name)
+            }
+        } ?: run {
+            getData(name)
+        }
+    }
+
+    private fun getData(name: String) {
         showProgress()
         viewModelScope.launch {
             when (val result = repo.getCity(name)) {

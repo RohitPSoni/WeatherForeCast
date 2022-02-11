@@ -30,6 +30,16 @@ class CitySearchFragment : BaseFragment<FragmentCitySearchBinding>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_city_search
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.invalidCityName.observe(this) {
+            showInvalidCityToast()
+        }
+        viewModel.cityName.observe(this) {
+            adapter.updateCities(it)
+        }
+    }
+
     override fun bindData() {
         viewBinder.cityName.adapter = adapter
         arguments?.let {
@@ -37,12 +47,6 @@ class CitySearchFragment : BaseFragment<FragmentCitySearchBinding>() {
             viewModel.searchCity(name)
         } ?: run {
             showInvalidCityToast()
-        }
-        viewModel.invalidCityName.observe(this) {
-            showInvalidCityToast()
-        }
-        viewModel.cityName.observe(this) {
-            adapter.updateCities(it)
         }
     }
 

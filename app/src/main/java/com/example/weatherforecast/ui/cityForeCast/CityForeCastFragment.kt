@@ -1,5 +1,6 @@
 package com.example.weatherforecast.ui.cityForeCast
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.weatherforecast.R
@@ -20,6 +21,12 @@ class CityForeCastFragment: BaseFragment<FragmentCityForecastBinding>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_city_forecast
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.weatherList.observe(this) {
+            adapter.updateWeather(it)
+        }
+    }
     override fun bindData() {
         with(viewBinder) {
             weatherList.adapter = adapter
@@ -34,10 +41,6 @@ class CityForeCastFragment: BaseFragment<FragmentCityForecastBinding>() {
             val log = it.getDouble(CITY_NAME_LOG)
 
             viewModel.fetchWeatherData(name, lat, log)
-        }
-
-        viewModel.weatherList.observe(this) {
-            adapter.updateWeather(it)
         }
     }
 }

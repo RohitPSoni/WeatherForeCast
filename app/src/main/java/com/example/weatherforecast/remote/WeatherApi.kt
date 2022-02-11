@@ -10,7 +10,7 @@ interface WeatherApi {
     @GET("http://api.openweathermap.org/geo/1.0/direct")
     suspend fun getCityName(@Query("q")cityName: String): Response<List<CityInfo>>
 
-    @GET("https://pro.openweathermap.org/data/2.5/forecast/hourly")
+    @GET("https://api.openweathermap.org/data/2.5/forecast")
     suspend fun getCityForecast(
         @Query("lat") lattitude: Double,
         @Query("lon") longitude: Double) : Response<CityForeCast>

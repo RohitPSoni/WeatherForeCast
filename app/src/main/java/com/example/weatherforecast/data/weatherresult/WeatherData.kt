@@ -6,12 +6,11 @@ import com.example.weatherforecast.remote.data.WeatherList
 
 data class WeatherData(
     val date: String?,
-    val currTemp: Double,
-    val tempMin: Double,
-    val tempMax: Double,
+    val currTemp: String,
+    val tempMin: String,
+    val tempMax: String,
     val weather: String,
 )
-
 
 fun WeatherList.toWeatherData(): WeatherData {
     return WeatherData(
