@@ -36,7 +36,7 @@ fun provideOkHttpClient(interceptor: AppIdInterceptor): OkHttpClient {
 fun provideExchangeApi(retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
 
 fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    return Builder().baseUrl("https://openweathermap.org/")
+    return Builder().baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
