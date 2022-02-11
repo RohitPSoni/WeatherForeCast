@@ -10,4 +10,5 @@
     <string name="curr_temp">Temperature is %s&#xb0;c</string>
     <string name="min_temp">Min temp is %s&#xb0;c</string>
     <string name="max_temp">Max temp is %s&#xb0;c</string>
+    <string name="search_city">Search City</string>
 </resources>

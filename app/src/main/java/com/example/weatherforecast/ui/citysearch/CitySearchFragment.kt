@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.weatherforecast.R
 import com.example.weatherforecast.base.BaseFragment
-import com.example.weatherforecast.data.cityresult.CityData
 import com.example.weatherforecast.databinding.FragmentCitySearchBinding
 import com.example.weatherforecast.ui.cityForeCast.CityForeCastFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,7 +40,13 @@ class CitySearchFragment : BaseFragment<FragmentCitySearchBinding>() {
     }
 
     override fun bindData() {
-        viewBinder.cityName.adapter = adapter
+        with(viewBinder) {
+            actionBar.setNavigationIcon(R.drawable.arrow_back)
+            actionBar.setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+            cityName.adapter = adapter
+        }
         arguments?.let {
             val name = it.getString(CITY_NAME_EXTRA) ?: ""
             viewModel.searchCity(name)
